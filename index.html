@@ -42,10 +42,14 @@
                     console.log(playRound(userPlay(), computerPlay()));
                 }
                 if (userScore > computerScore) {
+                    alert('Computer Loses!');
+                    alert('You are the Ultimate Winner with ' + userScore + ' points');
                     console.log('');
                     console.log('Computer Loses!');
                     console.log('You are the Ultimate Winner with ' + userScore + ' points');
                 } else {
+                    alert('You Lose!');
+                    alert('Computer is the Ultimate Winner with ' + computerScore + ' points');
                     console.log('');
                     console.log('You Lose!');
                     console.log('Computer is the Ultimate Winner with ' + computerScore + ' points');
