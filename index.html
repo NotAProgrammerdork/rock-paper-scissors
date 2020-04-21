@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <script>
+    
+            const gameChoose = ['Rock', 'Paper', 'Scissors'];
+            let userScore = 0;
+            let computerScore = 0;
+            
+            function userPlay() {
+                let userP = prompt('Rock... Paper... Scissors...', '');
+                return userP.charAt(0).toUpperCase() + userP.slice(1).toLowerCase();
+            }
+            
+            function computerPlay() {
+                let randomNumber = Math.floor((Math.random() * gameChoose.length) + 1 );
+                return gameChoose[randomNumber - 1];
+            }
+                
+            function playRound(playerSelection, computerSelection) {
+                if (
+                    playerSelection == 'Rock'       &&  computerSelection == 'Scissors'  ||
+                    playerSelection == 'Paper'      &&  computerSelection == 'Rock'      ||
+                    playerSelection == 'Scissors'   &&  computerSelection == 'Paper'
+                ) {
+                    userScore++;
+                    return 'You Won! ' + playerSelection + ' beats ' + computerSelection;
+                  } else if (
+                        playerSelection == computerSelection
+                    ) {
+                        return 'It\'s a Draw';
+                      } else {
+                            computerScore++;
+                            return 'You Lose! ' + computerSelection + ' beats ' + playerSelection;
+                        }
+            }
+            
+            function game() {
+                for (let timer = 1; timer <= 5; timer++) {
+                    console.log(playRound(userPlay(), computerPlay()));
+                }
+                if (userScore > computerScore) {
+                    console.log('');
+                    console.log('Computer Loses!');
+                    console.log('You are the Ultimate Winner with ' + userScore + ' points');
+                } else {
+                    console.log('');
+                    console.log('You Lose!');
+                    console.log('Computer is the Ultimate Winner with ' + computerScore + ' points');
+                }
+            }
+            
+            game();
+            
+        </script>
+    </body>
+</html>
